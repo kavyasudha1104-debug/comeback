@@ -1,7 +1,6 @@
 """Comeback: are you still on track for UPSC Prelims after missing days?
 
 Run:  streamlit run app.py
-Setup and deployment: docs/tech.md
 """
 
 import logging
