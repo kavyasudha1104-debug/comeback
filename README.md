@@ -1,6 +1,6 @@
 # Comeback
 
-Live app: https://comeback-r26ckaavsdeztbi2evlbzs.streamlit.app (no sign-up, it opens on a sample month)
+Live app: https://comeback-r26ckaavsdeztbi2evlbzs.streamlit.app 
 
 I built this for my SuperKalam APM application. The task was to use the app, find a problem, and build something for it.
 
