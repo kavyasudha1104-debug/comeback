@@ -52,9 +52,9 @@ What happens in a few tricky situations:
 | Server can't be reached | A message and a Try again button |
 | Session expired | A new guest session with the sample month |
 
-## What I checked
+## What was checked
 
-I went through each flow myself: the sample month, starting from zero, entering progress from My Progress, applying a plan, bringing a parked subject back, and deleting data. I also checked the tricky cases from the table above: two tabs, two quick taps, two visitors at once, and the server being down.
+Each flow was run end to end: the sample month, starting from zero, entering progress from My Progress, applying a plan, bringing a parked subject back, and deleting data. Plus the tricky cases from the table above: two tabs, two quick taps, two visitors at once, and the server being down.
 
 Bugs I found and fixed along the way:
 - The same plan could be applied twice when it didn't park anything. Every subject in an applied plan now gets stamped.
@@ -63,22 +63,6 @@ Bugs I found and fixed along the way:
 - On a phone, the chart labels overlapped.
 
 
-## Setting it up
+## Running it
 
-1. **Supabase.** Create a project at [supabase.com](https://supabase.com).
-   1. Open **SQL Editor → New query**, paste all of `database/setup.sql`, and click **Run**.
-2. **Turn on guest access.** Under **Authentication → Sign In / Providers**, switch on **Allow new users to sign up** and **Allow anonymous sign-ins**, then save. There's no sign-up: opening the app gives each visitor a private guest session.
-3. **Keys.** From **Project Settings → API keys**, copy the Project URL and the publishable key (or the legacy anon key) into `.streamlit/secrets.toml`:
-   ```toml
-   SUPABASE_URL = "https://YOUR-PROJECT.supabase.co"
-   SUPABASE_ANON_KEY = "your publishable key"
-   ```
-   Never use the service_role or secret key.
-4. **Run it.**
-   ```bash
-   pip install -r requirements.txt
-   streamlit run app.py
-   ```
-5. **To put it online,** push the folder to GitHub (`secrets.toml` is in `.gitignore`), then create an app on [share.streamlit.io](https://share.streamlit.io) with main file `app.py`. Paste the two keys into its Secrets, and set the app's URL as the Site URL in Supabase under **Authentication → URL Configuration**.
-
-Free plans sleep: Streamlit apps after a while without visitors, and Supabase projects after about a week of no activity.
+The live app is the easiest way to try it. To run your own copy: run `database/setup.sql` in a Supabase project, turn on anonymous sign-ins, put the project URL and publishable key in `.streamlit/secrets.toml`, then `pip install -r requirements.txt` and `streamlit run app.py`.
