@@ -53,7 +53,7 @@ with c2.popover("Start fresh", use_container_width=True):
             st.rerun()
 
 st.subheader("Your data")
-st.write("Everything you've entered belongs to you. Download it any time, or delete it.")
+st.write("Download what you've entered, or delete it.")
 ok, data = ui.call(store.export_my_data)
 if ok:
     a, b = st.columns(2)

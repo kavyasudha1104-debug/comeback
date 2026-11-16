@@ -13,12 +13,12 @@ with st.form("setup"):
     exam = st.date_input("Your Prelims date", value=today + timedelta(days=200), min_value=today,
                          max_value=today + timedelta(days=1100), format="DD/MM/YYYY")
     per_day = st.slider("On a normal study day, how many SuperKalam GS units do you finish?", 0.5, 6.0, 1.5, 0.5,
-                        help="Be honest rather than ambitious. Plans built on your real pace are the ones that last.")
+                        help="Use your usual pace, not your best day.")
     per_week = st.slider("Study days in a week", 1, 7, 6)
     revision = st.slider("Stop new units this many days before Prelims, to revise", 0, 120, 30, 5,
-                         help="Most aspirants keep the last month or more for revision and tests.")
+                         help="Days kept for revision and tests, with no new units.")
     share = st.slider("When catching up, go at most this much faster than normal", 10, 50, 30, 5, format="%d%%",
-                      help="30% means a 1.5-units day can stretch to about 2. More than that rarely lasts.")
+                      help="30% means a 1.5-unit day can go up to about 2.")
     start = st.radio("Where are you now?", [
         "Starting from zero",
         "I'll enter my SuperKalam progress next",

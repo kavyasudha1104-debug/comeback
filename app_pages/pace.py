@@ -107,13 +107,13 @@ if applied:
             ok, _ = ui.call(store.rate_plan, applied["id"], rating + 1)
             if ok:
                 del st.session_state["applied_plan"]
-                ui.flash("success", "Thanks. That helps tune the rules.")
+                ui.flash("success", "Thanks for rating it.")
                 st.rerun()
 
 if a.status in ("on_track", "done") and not overrides:
     if a.status == "on_track":
-        st.success(f"Keep going. About {max(a.weekly_target, round(s.units_per_day * s.study_days_per_week))} "
-                   "units a week keeps you on track.")
+        st.success(f"You're on track. About {max(a.weekly_target, round(s.units_per_day * s.study_days_per_week))} "
+                   "units a week keeps you there.")
     st.stop()
 
 # --- the plan -------------------------------------------------------------------------
@@ -142,7 +142,7 @@ if not plan.parked and after.needed_pace is not None:
                 f"{round(s.units_per_day * s.study_days_per_week)}. That's within your {round(s.catchup_share * 100)}% "
                 "catch-up limit, so nothing needs parking.")
 elif plan.parked:
-    st.markdown(f"Even at your top pace ({ui.pace(s.max_pace)}) everything won't fit. "
+    st.markdown(f"Even at your top pace ({ui.pace(s.max_pace)}) not everything fits. "
                 f"Park **{ui.units(plan.parked_units)}** for now, and do **{after.weekly_target} units a week** "
                 f"({ui.pace(after.needed_pace)}).")
 

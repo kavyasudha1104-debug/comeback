@@ -34,7 +34,7 @@ if not active:
 
 if backs:
     last_day, gap = backs[-1]
-    st.success(f"Last comeback: {ui.day(last_day, today)}, after {gap} days off. That's the part that counts.")
+    st.success(f"Last comeback: {ui.day(last_day, today)}, after {gap} days off.")
 
 st.subheader("Units per day, last 4 weeks")
 df = pd.DataFrame([{"day": d, "units": u} for d, u in units_by_day(S.unit_logs, today, 28)])

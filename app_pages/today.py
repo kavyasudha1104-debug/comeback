@@ -27,7 +27,7 @@ if note:
         st.markdown(f"**Welcome back{', ' + name if name else ''}. {note.days_off} days off happens to everyone.**")
         st.markdown(
             f"Your learning path picks up where you stopped, but Prelims hasn't moved, so your plan is "
-            f"now {note.days_off} days tighter. Here's how to pick up without trying to make it all up today:")
+            f"now {note.days_off} days tighter. For today:")
         lines = []
         if note.missed_news_days:
             lines.append(f"- **News:** you missed {note.missed_news_days} day{'s' if note.missed_news_days != 1 else ''} "
