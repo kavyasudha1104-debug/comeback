@@ -40,7 +40,7 @@ def check_public_key(key: str) -> None:
 def make_store():
     from .store import SupabaseStore
 
-    url, key = _get("SUPABASE_URL"), _get("SUPABASE_ANON_KEY")
+    url, key = (_get("SUPABASE_URL") or "").strip().rstrip("/"), (_get("SUPABASE_ANON_KEY") or "").strip()
     if not url or not key:
         raise RuntimeError("Set SUPABASE_URL and SUPABASE_ANON_KEY (see docs/tech.md).")
     check_public_key(key)

@@ -127,6 +127,13 @@ class SupabaseStore(BaseStore):
             persist_session=True,         # kept in memory inside this client object only
             postgrest_client_timeout=10,
         ))
+        if anon_key.startswith("sb_publishable_"):
+            # New-style publishable keys aren't JWTs, so they must only go in the
+            # apikey header. The Python client also sends the key as a Bearer token,
+            # which Supabase rejects ("Invalid API key"). The user's own token
+            # replaces this header after sign-in.
+            self._client.auth._headers.pop("Authorization", None)
+            self._client.options.headers.pop("Authorization", None)
         self.user_id: str | None = None
 
     @property
