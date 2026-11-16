@@ -143,19 +143,27 @@ class SupabaseStore(BaseStore):
         except AuthRetryableError:
             raise ConnectionLost()
         except AuthApiError as e:
-            msg = (getattr(e, "message", "") or str(e)).lower()
-            if "anonymous" in msg and "disabled" in msg:
-                raise StoreError("Guest access is turned off. In Supabase, turn on "
-                                 "Authentication -> Sign In / Providers -> Allow anonymous sign-ins.")
+            raw = getattr(e, "message", "") or str(e)
+            msg, code = raw.lower(), str(getattr(e, "code", "") or "")
+            log.warning("anonymous sign-in failed: %s (%s)", raw, code)
+            if "anonymous" in msg or "anonymous" in code:
+                raise StoreError("Supabase isn't allowing guests yet. In Supabase, open Authentication -> "
+                                 "Sign In / Providers, turn on 'Allow anonymous sign-ins', and click Save.")
+            if "signup" in msg.replace(" ", "").replace("-", "") or "signup" in code:
+                raise StoreError("Supabase isn't allowing new users. In Supabase, open Authentication -> "
+                                 "Sign In / Providers, turn on 'Allow new users to sign up', and click Save.")
+            if "captcha" in msg:
+                raise StoreError("Supabase has CAPTCHA turned on. Turn it off under Authentication -> "
+                                 "Attack Protection.")
             if "rate limit" in msg or "too many" in msg:
                 raise StoreError("Too many new visitors right now. Wait a minute and try again.")
-            log.warning("anonymous sign-in failed: %s", e)
-            raise StoreError("Couldn't start. Please try again.")
+            raise StoreError(f"Couldn't start: {raw}")
         except Exception as e:
             raise _network(e)
-        self.user_id = res.user.id if res.user else None
-        if not self.user_id:
-            raise StoreError("Couldn't start. Please try again.")
+        self.user_id = str(res.user.id) if res and res.user else None
+        if not self.user_id or not res.session:
+            raise StoreError("Couldn't start: Supabase didn't return a session. Check that "
+                             "'Allow anonymous sign-ins' is on and 'Confirm email' isn't blocking new users.")
 
     def sign_out(self) -> None:
         try:

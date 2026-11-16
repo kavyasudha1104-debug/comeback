@@ -7,7 +7,7 @@ Everything is in Python, with no JavaScript.
 - **Supabase** handles guest sessions (Auth) and the database (Postgres).
 
 ```
-app.py                  start screen, first-time setup, page navigation
+app.py                  opens a guest session with the sample month, page navigation
 app_pages/              one file per screen
 comeback/catalog.py     SuperKalam's 18 subjects and 259 units (from its Learn page)
 comeback/pace.py        the maths and the rules: on track?, what to park, welcome back
@@ -34,7 +34,7 @@ screenshots/            Comeback's screens, and SuperKalam screens from my resea
 
 ## Keeping each user's data private
 
-- There's no sign-up. Pressing Start creates a private guest session (Supabase anonymous sign-in), so each visitor still has their own user id.
+- There's no sign-up. Opening the app creates a private guest session (Supabase anonymous sign-in), so each visitor still has their own user id.
 - Row-level security is on for every table. Each visitor can only read their own rows.
 - The data stays only while the tab is open. Refreshing or closing it starts a new guest.
 - Nobody can write to a table directly. Every change (logging units, ticking a habit, applying a plan) goes through a SQL function. Each function checks who you are, locks the rows it changes, and checks the input: it must be a real subject, can't go past its units, and the plan can't be out of date.
@@ -50,7 +50,7 @@ What happens in a few tricky situations:
 | Units logged on the phone while a plan is open | Apply shows the new plan instead of the old one |
 | Two quick taps on a subject's last unit | Only one counts |
 | Server can't be reached | A message and a Try again button |
-| Session expired | Back to the start screen |
+| Session expired | A new guest session with the sample month |
 
 ## What I checked
 
@@ -68,7 +68,7 @@ Not tested: real users.
 
 1. **Supabase.** Create a project at [supabase.com](https://supabase.com).
    1. Open **SQL Editor → New query**, paste all of `database/setup.sql`, and click **Run**.
-2. **Turn on guest access.** Under **Authentication → Sign In / Providers**, switch on **Allow anonymous sign-ins** and save. There's no sign-up: pressing Start gives each visitor a private guest session.
+2. **Turn on guest access.** Under **Authentication → Sign In / Providers**, switch on **Allow anonymous sign-ins** and save. There's no sign-up: opening the app gives each visitor a private guest session.
 3. **Keys.** From **Project Settings → API keys**, copy the Project URL and the anon (publishable) key into `.streamlit/secrets.toml`:
    ```toml
    SUPABASE_URL = "https://YOUR-PROJECT.supabase.co"

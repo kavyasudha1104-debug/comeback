@@ -22,9 +22,14 @@ except RuntimeError as e:
     st.stop()
 
 if not store.signed_in:
-    st.navigation([st.Page("app_pages/welcome.py", title="Comeback", url_path="welcome", default=True)],
-                  position="hidden").run()
-    st.stop()
+    # No sign-up: every visitor gets a private guest session with a sample month
+    # already loaded, and lands straight on Today.
+    with st.spinner("Opening Comeback..."):
+        ok, _ = ui.call(ui.start_with_sample)
+    if not ok:
+        if st.button("Try again"):
+            st.rerun()
+        st.stop()
 
 if "profile" not in st.session_state:
     ok, prof = ui.call(store.my_profile)

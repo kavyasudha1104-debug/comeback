@@ -72,10 +72,5 @@ with st.expander("Delete all my data"):
     if st.button("Delete everything", disabled=confirm.strip().lower() != "delete"):
         ok, _ = ui.call(store.delete_my_data)
         if ok:
-            ui.sign_out("All your data was deleted.")
+            ui.sign_out("All your data was deleted. You're back on a fresh sample month.")
             st.rerun()
-
-st.divider()
-if st.button("Leave and start over", icon=":material/logout:"):
-    ui.sign_out()
-    st.rerun()

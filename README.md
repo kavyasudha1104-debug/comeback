@@ -1,48 +1,40 @@
 # Comeback
 
-For my SuperKalam APM application: I used the SuperKalam app, found a problem, and built a fix.
+Live app: https://comeback-r26ckaavsdeztbi2evlbzs.streamlit.app (no sign-up, it opens on a sample month)
 
-## The problem I found
+I built this for my SuperKalam APM application. The task was to use the app, find a problem, and build something for it.
 
-When you miss days on SuperKalam, the GS learning path just resumes where you stopped. That pushes your whole syllabus later, but Prelims doesn't move. My Progress shows units done ("0/259 units completed"), but not your pace, or whether you'll finish before Prelims at that pace. So after a bad week you can't tell whether you're fine or two months behind.
+## The problem
 
-Other prep apps already show this. SuperKalam has everything it needs to show it (exam year, a fixed 259-unit path, daily progress), but it doesn't.
+My first idea was wrong. I thought missing days would leave a pile of targets to catch up on, so I planned a tool to sort that pile. Then I set up targets in the app and saw there's no pile: the daily habits reset and the GS learning path just resumes where you stopped.
+
+But that's the real problem. Resuming pushes your whole syllabus later, and Prelims doesn't move. My Progress shows "0/259 units completed", but not your pace or whether you'll finish before Prelims. So after a bad week you can't tell if you're fine or two months behind.
+
+Other prep apps (Poro, Lighthouse Prep) already show this. SuperKalam has everything it needs (exam year, the 259-unit path, daily progress), but doesn't show it.
 
 ## What Comeback does
 
-- Tells you in one line whether you'll finish in time, for example: "At 1.5 units a day you'd finish on 30 Apr: 21 days after Prelims, with no time to revise."
-- If you're a bit behind, it raises your weekly target, within a catch-up limit you set.
-- If that isn't enough, it suggests what to park: Mains-only subjects until after Prelims first, then subjects you marked "can skim". Subjects you marked "must finish" are never parked. Every suggestion has a reason and you can change it.
-- After 2+ days off, a short welcome back: one news catch-up read instead of every missed day.
+- Tells you in one line if you'll finish in time, e.g. "you'd finish 21 days after Prelims, with no time to revise."
+- If you're slightly behind, it raises your weekly target, within a catch-up limit you set.
+- If that's not enough, it suggests parking Mains-only subjects until after Prelims, then subjects you marked "can skim". It never touches "must finish" subjects, and you can say no to any suggestion.
+- After 2+ days off, a short welcome back with one news catch-up instead of every missed day.
 
-It uses SuperKalam's own 18 subjects and 259 units, its Mains tags and its three daily habits.
+It uses SuperKalam's own 18 subjects, 259 units, Mains tags and three daily habits.
 
 | Back after 5 days off | Behind, and the plan |
 |---|---|
 | ![Today](screenshots/03-today-welcome-back.png) | ![On track?](screenshots/04-on-track-behind.png) |
 
-## Files
+## More detail
 
-- [docs/research.md](docs/research.md): what I found in the app (with screenshots), what SuperKalam says, other apps, what I still don't know
-- [docs/product.md](docs/product.md): the problem, what it does, why each rule, metrics, risks, and the validation plan (not done yet)
-- [docs/tech.md](docs/tech.md): how it's built, how each user's data is kept private, and setup steps
-- `screenshots/`: Comeback's screens, and `screenshots/superkalam/` from my research
+- [docs/research.md](docs/research.md): what I found in the app, with screenshots
+- [docs/product.md](docs/product.md): the rules and why, how I'd measure it, what I still need to test
+- [docs/tech.md](docs/tech.md): how it's built and how to set it up
 
-## Run it
+## Running it yourself
 
-No sign-up: open the app and press **Try it with a sample month**.
+1. Create a Supabase project and run `database/setup.sql` in the SQL Editor. Turn on **Allow anonymous sign-ins** under Authentication → Sign In / Providers.
+2. Add your Supabase URL and anon key to `.streamlit/secrets.toml` (or Streamlit Cloud → Settings → Secrets).
+3. `pip install -r requirements.txt`, then `streamlit run app.py`.
 
-
-1. Create a Supabase project, open SQL Editor, and run `database/setup.sql`. Then turn on **Authentication → Sign In / Providers → Allow anonymous sign-ins**.
-2. Create `.streamlit/secrets.toml` with your Project URL and anon key (`SUPABASE_URL = "..."` and `SUPABASE_ANON_KEY = "..."`). On Streamlit Cloud, paste them under Settings → Secrets instead.
-3. Run:
-   ```bash
-   pip install -r requirements.txt
-   streamlit run app.py
-   ```
-
-Full steps are in [docs/tech.md](docs/tech.md).
-
-## Built with
-
-Python only: Streamlit for the app, Supabase for guest sessions and the Postgres database.
+Built with Python, Streamlit and Supabase.

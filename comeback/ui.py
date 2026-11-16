@@ -62,6 +62,18 @@ def store() -> BaseStore:
     return st.session_state.store
 
 
+def start_with_sample() -> None:
+    """Start a guest session and load the sample month, so the app opens straight on Today."""
+    s = store()
+    s.start()
+    exam = (today_ist() + timedelta(days=150)).isoformat()
+    s.save_profile("", exam, 30, 1.5, 6, 0.3)
+    s.load_sample()
+    st.session_state.profile = s.my_profile()
+    flash("info", "You're looking at a sample month: three weeks of study, then the last 5 days missed. "
+                  "To use your own progress, go to Settings and press Start fresh.")
+
+
 def sign_out(message: str | None = None) -> None:
     try:
         store().sign_out()

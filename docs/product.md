@@ -14,7 +14,7 @@ Someone self-studying on SuperKalam's GS path with a Prelims date in mind, who m
 
 ## What Comeback does
 
-1. **Setup.** You enter your Prelims date, how many units you do on a normal day, how many days a week you study, how long you keep for revision (30 days by default) and how much faster you're willing to go to catch up (30% by default). Then you can start from zero, copy your numbers from My Progress, or load a sample month.
+1. **Opening the app.** There's no sign-up. The app opens straight on a sample month (three weeks of study, then 5 days missed) so you can see it working. In Settings you set your Prelims date, how many units you do on a normal day, how many days a week you study, how long you keep for revision (30 days by default) and how much faster you're willing to go to catch up (30% by default). Start fresh clears the sample, and you can copy your numbers from My Progress into Subjects.
 2. **Progress.** It uses the same 18 subjects and 259 units as SuperKalam. You log units as you go (+1 or +2), and "next up" picks the same unit SuperKalam's Resume would. You can also tick the three daily habits.
 3. **On track?** One sentence answers it. For example: "At 1.5 units a day you'd finish on 30 Apr: 21 days after Prelims, with no time to revise." Under it you see your needed, normal and recent pace, and a chart.
 4. **What to change if you're behind.** First it tries the smallest change, which is a higher weekly target within your catch-up limit. If that isn't enough, it suggests parking subjects:
