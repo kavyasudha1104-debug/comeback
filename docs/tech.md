@@ -56,12 +56,11 @@ What happens in a few tricky situations:
 
 Each flow was run end to end: the sample month, starting from zero, entering progress from My Progress, applying a plan, bringing a parked subject back, and deleting data. Plus the tricky cases from the table above: two tabs, two quick taps, two visitors at once, and the server being down.
 
-Bugs I found and fixed along the way:
+Bugs found and fixed along the way:
 - The same plan could be applied twice when it didn't park anything. Every subject in an applied plan now gets stamped.
 - The one-line answer said "51 days into your revision time" when the finish date was actually 21 days after Prelims. It now says that.
 - After applying a plan, the page offered to apply again.
 - On a phone, the chart labels overlapped.
-
 
 ## Running it
 
