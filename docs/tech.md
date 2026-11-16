@@ -62,7 +62,6 @@ Bugs I found and fixed along the way:
 - After applying a plan, the page offered to apply again.
 - On a phone, the chart labels overlapped.
 
-Not tested: real users.
 
 ## Setting it up
 

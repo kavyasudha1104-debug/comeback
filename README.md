@@ -28,13 +28,7 @@ It uses SuperKalam's own 18 subjects, 259 units, Mains tags and three daily habi
 ## More detail
 
 - [docs/research.md](docs/research.md): what I found in the app, with screenshots
-- [docs/product.md](docs/product.md): the rules and why, how I'd measure it, what I still need to test
-- [docs/tech.md](docs/tech.md): how it's built and how to set it up
-
-## Running it yourself
-
-1. Create a Supabase project and run `database/setup.sql` in the SQL Editor. Under Authentication → Sign In / Providers, turn on **Allow new users to sign up** and **Allow anonymous sign-ins**.
-2. Add your Supabase URL and publishable (or anon) key to `.streamlit/secrets.toml` (or Streamlit Cloud → Settings → Secrets).
-3. `pip install -r requirements.txt`, then `streamlit run app.py`.
+- [docs/product.md](docs/product.md): the rules and why, how I'd measure it, and how I'd test it next
+- [docs/tech.md](docs/tech.md): how it's built
 
 Built with Python, Streamlit and Supabase.

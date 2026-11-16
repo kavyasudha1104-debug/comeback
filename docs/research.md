@@ -6,8 +6,6 @@ I did this on 9–10 November 2026. Next to each finding I've noted where it com
 - **secondary**: a third-party blog or post
 - **my guess**: my own reading, not evidence
 
-I haven't spoken to aspirants yet; that's the next step (see [product.md](product.md)).
-
 ## How the idea changed
 
 My first idea was wrong, and finding that out is most of this research.

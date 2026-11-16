@@ -65,9 +65,7 @@ Inside SuperKalam I'd A/B test an "on track?" card on My Progress, plus the plan
 - Units probably aren't all the same length, so "units per day" is rough. It's the unit SuperKalam itself uses, but inside the company I'd use real time per unit.
 - SuperKalam's paid Weekly Progress Report might already show pace. If it does, the idea becomes showing it to everyone, at the moment someone comes back.
 
-## Validation plan (not done yet)
-
-No aspirant has used Comeback. What I'd do next:
+## How I'd test it next
 
 1. **Check the paid Weekly Progress Report**, to confirm the gap on every plan.
 2. **Talk to 5 aspirants** (at least 2 on SuperKalam), 15 minutes each, before showing them anything:
