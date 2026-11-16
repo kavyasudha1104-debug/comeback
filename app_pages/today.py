@@ -6,9 +6,6 @@ from comeback import ui
 from comeback.catalog import BY_KEY, HABITS
 from comeback.pace import assess, comeback_note, next_up
 
-if st.session_state.pop("go_subjects", False):
-    st.switch_page("app_pages/subjects.py")
-
 ui.show_flash()
 store = ui.store()
 S = ui.need_state()

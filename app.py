@@ -39,9 +39,9 @@ if "profile" not in st.session_state:
     st.session_state.profile = prof
 
 if st.session_state.profile is None:
-    st.navigation([st.Page("app_pages/setup.py", title="Set up", url_path="setup", default=True)],
-                  position="hidden").run()
-    st.stop()
+    ok, _ = ui.call(ui.load_sample_month)
+    if not ok:
+        st.stop()
 
 st.navigation([
     st.Page("app_pages/today.py", title="Today", icon=":material/today:", url_path="today", default=True),

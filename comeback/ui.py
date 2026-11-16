@@ -35,9 +35,6 @@ CSS = """
 .cb-tag.park {background: rgba(0,0,0,.07);}
 .cb-reason {font-size: .88rem; opacity: .8; margin-top: .15rem;}
 .cb-done {text-decoration: line-through; opacity: .55;}
-.cb-bar {height: .55rem; border-radius: .3rem; background: rgba(0,0,0,.07); overflow: hidden; display: flex; margin: .3rem 0 .2rem;}
-.cb-bar span {display: block; height: 100%;}
-.cb-bar .a {background: #8fb39f;} .cb-bar .b {background: #d9a441;} .cb-bar .c {background: #b04a2f;}
 @media (max-width: 640px) {
   .block-container {padding-left: .9rem; padding-right: .9rem;}
   .cb-big {font-size: 1.6rem;}
@@ -64,8 +61,12 @@ def store() -> BaseStore:
 
 def start_with_sample() -> None:
     """Start a guest session and load the sample month, so the app opens straight on Today."""
+    store().start()
+    load_sample_month()
+
+
+def load_sample_month() -> None:
     s = store()
-    s.start()
     exam = (today_ist() + timedelta(days=150)).isoformat()
     s.save_profile("", exam, 30, 1.5, 6, 0.3)
     s.load_sample()
@@ -177,14 +178,6 @@ def pace(p: float | None) -> str:
     return "–" if p is None else f"{p:.1f}/day"
 
 
-def mins(m: int) -> str:
-    m = int(m)
-    if m < 60:
-        return f"{m} min"
-    h, r = divmod(m, 60)
-    return f"{h} h" if r == 0 else f"{h} h {r} min"
-
-
 def day(d: date, ref: date | None = None) -> str:
     ref = ref or today()
     if d == ref:
@@ -202,17 +195,6 @@ def esc(s: str) -> str:
 
 def tag(text: str, cls: str = "") -> str:
     return f'<span class="cb-tag {cls}">{esc(text)}</span>'
-
-
-def load_bar(limit: int, planned: int, extra: int = 0) -> str:
-    """Planned (green), catch-up (amber), anything over the limit (red)."""
-    total = max(limit, planned + extra, 1)
-    over = max(planned + extra - limit, 0)
-    a = min(planned, limit)
-    b = max(min(planned + extra, limit) - a, 0)
-    return (f'<div class="cb-bar"><span class="a" style="width:{a / total * 100:.1f}%"></span>'
-            f'<span class="b" style="width:{b / total * 100:.1f}%"></span>'
-            f'<span class="c" style="width:{over / total * 100:.1f}%"></span></div>')
 
 
 def exam_line() -> str:

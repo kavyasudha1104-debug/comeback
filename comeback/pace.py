@@ -209,10 +209,6 @@ class Plan:
     def parked_units(self) -> int:
         return sum(d.remaining for d in self.parked)
 
-    @property
-    def changes_anything(self) -> bool:
-        return bool(self.parked) or self.before.status in ("stretch", "behind")
-
 
 def make_plan(states: list[SubjectState], s: Settings, today: date,
               overrides: dict[str, str] | None = None,
