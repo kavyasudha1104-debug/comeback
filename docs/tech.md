@@ -39,7 +39,7 @@ screenshots/            Comeback's screens, and SuperKalam screens from my resea
 - The data stays only while the tab is open. Refreshing or closing it starts a new guest.
 - Nobody can write to a table directly. Every change (logging units, ticking a habit, applying a plan) goes through a SQL function. Each function checks who you are, locks the rows it changes, and checks the input: it must be a real subject, can't go past its units, and the plan can't be out of date.
 - Applying a plan gets the most checks. It has to match your current progress exactly, and it can only park Mains subjects as Mains-only or your own can-skim subjects as can-skim. The same plan can't be applied twice.
-- The app only uses Supabase's public (anon) key, and won't start if given the secret key.
+- The app only uses Supabase's public (publishable or anon) key, and won't start if given the secret key.
 - "Today" comes from the server in India time, so a wrong phone date can't mess up a plan.
 
 What happens in a few tricky situations:
@@ -68,11 +68,11 @@ Not tested: real users.
 
 1. **Supabase.** Create a project at [supabase.com](https://supabase.com).
    1. Open **SQL Editor → New query**, paste all of `database/setup.sql`, and click **Run**.
-2. **Turn on guest access.** Under **Authentication → Sign In / Providers**, switch on **Allow anonymous sign-ins** and save. There's no sign-up: opening the app gives each visitor a private guest session.
-3. **Keys.** From **Project Settings → API keys**, copy the Project URL and the anon (publishable) key into `.streamlit/secrets.toml`:
+2. **Turn on guest access.** Under **Authentication → Sign In / Providers**, switch on **Allow new users to sign up** and **Allow anonymous sign-ins**, then save. There's no sign-up: opening the app gives each visitor a private guest session.
+3. **Keys.** From **Project Settings → API keys**, copy the Project URL and the publishable key (or the legacy anon key) into `.streamlit/secrets.toml`:
    ```toml
    SUPABASE_URL = "https://YOUR-PROJECT.supabase.co"
-   SUPABASE_ANON_KEY = "your anon key"
+   SUPABASE_ANON_KEY = "your publishable key"
    ```
    Never use the service_role or secret key.
 4. **Run it.**

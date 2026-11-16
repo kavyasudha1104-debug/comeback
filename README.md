@@ -1,6 +1,6 @@
 # Comeback
 
-Live app: https://comeback-r26ckaavsdeztbi2evlbzs.streamlit.app 
+Live app: https://comeback-r26ckaavsdeztbi2evlbzs.streamlit.app
 
 I built this for my SuperKalam APM application. The task was to use the app, find a problem, and build something for it.
 
@@ -14,7 +14,7 @@ Other prep apps (Poro, Lighthouse Prep) already show this. SuperKalam has everyt
 
 ## What Comeback does
 
-- Tells you in one line if you'll finish in time, e.g. "you'd finish 21 days after Prelims, with no time to revise."
+- Tells you in one line if you'll finish in time. For the sample month it says you'd finish 21 days after Prelims, with no time to revise.
 - If you're slightly behind, it raises your weekly target, within a catch-up limit you set.
 - If that's not enough, it suggests parking Mains-only subjects until after Prelims, then subjects you marked "can skim". It never touches "must finish" subjects, and you can say no to any suggestion.
 - After 2+ days off, a short welcome back with one news catch-up instead of every missed day.
@@ -33,8 +33,8 @@ It uses SuperKalam's own 18 subjects, 259 units, Mains tags and three daily habi
 
 ## Running it yourself
 
-1. Create a Supabase project and run `database/setup.sql` in the SQL Editor. Turn on **Allow anonymous sign-ins** under Authentication → Sign In / Providers.
-2. Add your Supabase URL and anon key to `.streamlit/secrets.toml` (or Streamlit Cloud → Settings → Secrets).
+1. Create a Supabase project and run `database/setup.sql` in the SQL Editor. Under Authentication → Sign In / Providers, turn on **Allow new users to sign up** and **Allow anonymous sign-ins**.
+2. Add your Supabase URL and publishable (or anon) key to `.streamlit/secrets.toml` (or Streamlit Cloud → Settings → Secrets).
 3. `pip install -r requirements.txt`, then `streamlit run app.py`.
 
 Built with Python, Streamlit and Supabase.
