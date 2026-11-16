@@ -14,7 +14,7 @@ S = ui.need_state()
 today = S.today
 
 st.title("Progress")
-st.caption("Not streaks. What matters after a bad week is whether you come back.")
+st.caption("No streaks here. After a bad week, what matters is whether you come back.")
 
 active = S.active_days
 recent = [d for d in active if (today - d).days < 14]
@@ -41,7 +41,7 @@ df = pd.DataFrame([{"day": d, "units": u} for d, u in units_by_day(S.unit_logs, 
 df["label"] = [f"{d.day} {d.strftime('%b')}" for d in df["day"]]
 st.altair_chart(alt.Chart(df).mark_bar(color="#2f6b4f", cornerRadiusTopLeft=3, cornerRadiusTopRight=3).encode(
     x=alt.X("label:N", sort=None, title=None, axis=alt.Axis(labelAngle=-45)),
-    y=alt.Y("units:Q", title="units"), tooltip=["label", "units"]).properties(height=220),
+    y=alt.Y("units:Q", title="units"), tooltip=[alt.Tooltip("label:N", title="Day"), alt.Tooltip("units:Q", title="Units")]).properties(height=220),
     use_container_width=True)
 
 st.subheader("Daily habits, last 2 weeks")
