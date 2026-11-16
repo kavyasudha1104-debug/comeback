@@ -29,6 +29,5 @@ It uses SuperKalam's own 18 subjects, 259 units, Mains tags and three daily habi
 
 - [docs/research.md](docs/research.md): what I found in the app, with screenshots
 - [docs/product.md](docs/product.md): the rules and why, how I'd measure it, and how I'd test it next
-- [docs/tech.md](docs/tech.md): how it's built
 
 Built with Python, Streamlit and Supabase.
