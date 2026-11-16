@@ -42,6 +42,6 @@ def make_store():
 
     url, key = (_get("SUPABASE_URL") or "").strip().rstrip("/"), (_get("SUPABASE_ANON_KEY") or "").strip()
     if not url or not key:
-        raise RuntimeError("Set SUPABASE_URL and SUPABASE_ANON_KEY (see docs/tech.md).")
+        raise RuntimeError("Set SUPABASE_URL and SUPABASE_ANON_KEY (Streamlit secrets).")
     check_public_key(key)
     return SupabaseStore(url, key)
