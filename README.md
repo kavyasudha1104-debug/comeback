@@ -23,7 +23,9 @@ It uses SuperKalam's own 18 subjects, 259 units, Mains tags and three daily habi
 
 ### How it would look inside SuperKalam
 
-A design of the same flow as it could sit in the app: the "on track?" card on My Progress, the welcome back, the plan, and the plan applied.
+Figma design of the full flow: the "on track?" card on My Progress, the welcome back, the plan, what happens when you overrule a suggestion, your priorities, comebacks instead of streaks, and parked subjects coming back after Prelims.
+
+Clickable prototype: https://www.figma.com/proto/f5nykiZPOLZkRJN7XMW8vk/Comeback-%E2%80%93-SuperKalam-concept?scaling=scale-down&content-scaling=fixed
 
 ![Design: Comeback inside SuperKalam](screenshots/design-flow.png)
 
