@@ -21,6 +21,14 @@ Other prep apps (Poro, Lighthouse Prep) already show this. SuperKalam has everyt
 
 It uses SuperKalam's own 18 subjects, 259 units, Mains tags and three daily habits.
 
+### How it would look inside SuperKalam
+
+A design of the same flow as it could sit in the app: the "on track?" card on My Progress, the welcome back, the plan, and the plan applied.
+
+![Design: Comeback inside SuperKalam](screenshots/design-flow.png)
+
+### The working prototype
+
 | Back after 5 days off | Behind, and the plan |
 |---|---|
 | ![Today](screenshots/03-today-welcome-back.png) | ![On track?](screenshots/04-on-track-behind.png) |

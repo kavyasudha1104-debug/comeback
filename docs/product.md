@@ -2,6 +2,13 @@
 
 The problem and the evidence are in the [README](../README.md) and [research.md](research.md). This page covers what Comeback does, why each rule is the way it is, and how I'd measure and test it.
 
+## From a vague problem to something that ships
+
+1. **Vague problem:** students drop off after missing a few days.
+2. **What's actually happening:** the path resumes, but nothing says whether you'll still finish before Prelims, so a bad week turns into "I can't catch up".
+3. **Smallest thing to ship:** an "on track?" card on My Progress, plus a plan after 2+ days off. Both use data SuperKalam already has.
+4. **How we'd know it worked:** more students still studying in their second week back after a gap.
+
 **Who it's for:** someone self-studying on SuperKalam's GS path with a Prelims date in mind, who sometimes misses days because of illness, a job, family or just a bad week.
 
 ## What it does
@@ -39,7 +46,12 @@ The queries are in [database/metrics.sql](../database/metrics.sql).
 - **Plans kept, overrides per rule, doable rating:** is the plan realistic, and which rule is wrong?
 - **Guardrail:** total units per week, so nobody "fits" by studying less.
 
-Inside SuperKalam I'd A/B test an "on track?" card on My Progress, plus the plan after 2+ days off, and decide on recovery.
+### As an experiment inside SuperKalam
+
+- **Test:** half of students who miss 2+ days see the welcome back and plan; half see today's app. Same for the "on track?" card on My Progress.
+- **Events to track (PostHog):** `pace_viewed`, `plan_previewed`, `plan_applied` (with how many subjects were parked and overridden), `plan_rated`, and the existing study and habit events.
+- **Decide on:** recovery. Watch return as the early read, total units per week as the guardrail, and SUPER conversion if the card is shown on the free plan.
+- **Ship order:** the card first (no new decisions for the student, just information), then the plan once the card shows people want it.
 
 ## Risks
 
