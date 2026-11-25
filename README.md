@@ -10,7 +10,7 @@ My first idea was wrong. I thought missing days would leave a pile of targets to
 
 But that's the real problem. Resuming pushes your whole syllabus later, and Prelims doesn't move. My Progress shows "0/259 units completed", but not your pace or whether you'll finish before Prelims. So after a bad week you can't tell if you're fine or two months behind.
 
-Aspirants describe the same thing in public posts: a short break that turns into weeks, a backlog that never clears, not finishing the syllabus in time ([examples in research.md](docs/research.md#what-aspirants-say-about-falling-behind)). I haven't interviewed aspirants yet; that's the next step.
+Aspirants describe the same thing in public posts: a short break that turns into weeks, a backlog that never clears, not finishing the syllabus in time ([examples in research.md](docs/research.md#what-aspirants-say-about-falling-behind)).
 
 Other prep apps (Poro, Lighthouse Prep) already show this. SuperKalam has everything it needs (exam year, the 259-unit path, daily progress), but doesn't show it.
 

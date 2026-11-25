@@ -45,7 +45,7 @@ So the idea isn't new. The gap is that SuperKalam has everything needed to answe
 
 ## What aspirants say about falling behind
 
-I couldn't interview aspirants for this, so these are public posts by aspirants in their own words (checked 26 November 2026). They aren't interviews, and they aren't SuperKalam users specifically.
+These are public posts by aspirants in their own words (checked 26 November 2026). They aren't interviews, and they aren't SuperKalam users specifically.
 
 - **A backlog that never cleared.** In "Reasons why I left UPSC", the writer missed classes, couldn't clear the backlog before coaching ended, and slowly lost interest. ([Medium](https://medium.com/being/reasons-why-i-left-upsc-c8c5d0548ac3))
 - **Losing track, then restarting.** A candidate describes losing track of preparation for weeks after a family illness, and calls the next phase "Mission Restart". ([Substack](https://rojasrajan.substack.com/p/my-upsc-journey-the-long-way-to-service))
