@@ -16,7 +16,7 @@ When you miss a day, the habits reset and the learning path resumes where you st
 
 I also asked SuperKalam's Ask AI how the app handles missed days and targets ([1](../screenshots/superkalam/ask-ai-missed-days.png), [2](../screenshots/superkalam/ask-ai-targets.png)). It found nothing about the app adjusting a personal plan, which matches what I saw.
 
-I couldn't see the paid plan's Weekly Progress Report. The [help page](https://superkalam.com/help-and-support) describes it as showing strengths and weaknesses, not pace.
+I couldn't see the paid plan's Weekly Progress Report myself. Every public description I found is about performance, not pace: the [help page](https://superkalam.com/help-and-support) says it identifies strengths and weaknesses, the [Mains evaluation page](https://superkalam.com/upsc-mains-evaluation) says it tracks whether your fixes from answer feedback worked, and a [third-party listing](https://www.eli.work/tool/superkalam) describes weekly performance reports and accuracy trends. None mention a finish date or pace against the exam, but I haven't seen a real report, so this is still unconfirmed.
 
 ## What SuperKalam says
 
@@ -42,3 +42,15 @@ So the idea isn't new. The gap is that SuperKalam has everything needed to answe
 - A UPSC educator suggests striking off a backlog that's become overwhelming rather than chasing it. ([X](https://x.com/krishna_tupe/status/1578997344737013760))
 - For missed news, the common advice is one compilation instead of old papers. ([Raj IAS](https://rajiasacademy.com/upsc-current-affairs-how-much-is-enough/), [Plutus IAS](https://plutusias.com/how-many-months-of-current-affairs-are-enough-for-upsc-prelims/))
 - A coaching guide recommends a priority order when you fall behind, rather than recovering everything. ([The Prayas India](https://theprayasindia.com/how-to-manage-time-during-upsc-preparation/))
+
+## What aspirants say about falling behind
+
+I couldn't interview aspirants for this, so these are public posts by aspirants in their own words (checked 26 November 2026). They aren't interviews, and they aren't SuperKalam users specifically.
+
+- **A backlog that never cleared.** In "Reasons why I left UPSC", the writer missed classes, couldn't clear the backlog before coaching ended, and slowly lost interest. ([Medium](https://medium.com/being/reasons-why-i-left-upsc-c8c5d0548ac3))
+- **Losing track, then restarting.** A candidate describes losing track of preparation for weeks after a family illness, and calls the next phase "Mission Restart". ([Substack](https://rojasrajan.substack.com/p/my-upsc-journey-the-long-way-to-service))
+- **Not finishing in time.** A candidate lists "inability to complete the mammoth syllabus in short time frame" among the hardest parts of preparation. ([blog](https://avadhsinghal.wordpress.com/my-upsc-jounrey/))
+- **Stuck on specific subjects.** An aspirant asking a topper for help says they're struggling to complete Art & Culture and Geography. ([Substack comments](https://bhavishyadesai.substack.com/p/notes-on-civil-services-or-the-ias/comments))
+- **A short break that grows.** A coaching guide says some students lose momentum after a short break that turns into several unproductive days. ([The Prayas India](https://theprayasindia.com/how-to-stay-consistent-during-upsc-preparation/))
+
+What I take from this: falling behind is common and talked about, and the advice aspirants get is to triage and restart rather than recover everything. That's what Comeback does. What these posts can't tell me is whether aspirants would trust an app to say "you'll finish after Prelims". That still needs real conversations.
